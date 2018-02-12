@@ -11,7 +11,7 @@ const PROT = process.env.PROT || 8000
 const HappyPack = require('happypack')
 const os = require('os')
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
-
+// const happyThreadPool = HappyPack.ThreadPool({ size: 1 })
 //提取公共文件
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin
 
@@ -35,10 +35,10 @@ const config = {
             exclude: '/node_modules/',
             loader: [ 'happypack/loader?id=js' ]
         },
-        {
-            test: /\.scss$/, 
-            loader: [ 'happypack/loader?id=sass' ]
-        },
+        // {
+        //     test: /\.scss$/,
+        //     loader: [ 'happypack/loader?id=sass' ]
+        // },
         {
             test: /\.less$/,
             loader: [ 'happypack/loader?id=less' ]
@@ -95,14 +95,14 @@ const config = {
     },
     //插件
     plugins: [
-        //js 编译多线程 
+        //js 编译多线程 flow compact: true,
         new HappyPack({
             id: 'js',
             threadPool: happyThreadPool,
             loaders: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: [ 'env','react' ,'flow'],
+                    presets: [ 'env','react','flow' ],
                     plugins: ['syntax-dynamic-import','transform-object-rest-spread']
                 }
             },{
@@ -113,12 +113,12 @@ const config = {
             }],
         }),
         // sass 编译多线程
-        new HappyPack({
-            id: 'sass',
-            threadPool: happyThreadPool,
-            loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
-        }),
-        // sass 编译多线程
+        // new HappyPack({
+        //     id: 'sass',
+        //     threadPool: happyThreadPool,
+        //     loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        // }),
+        // less 编译多线程
         new HappyPack({
             id: 'less',
             threadPool: happyThreadPool,

@@ -10,7 +10,7 @@ const app = dva({
 })
 
 // 2. Plugins
-app.use(createLoading())
+app.use(createLoading());
 
 // 3. Register global model
 app.model(require('./models/global').default)

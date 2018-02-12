@@ -13,9 +13,7 @@ module.exports = {
             'redux',
             'react-redux',
             'react-dom',
-            'zane-calendar',
-            'common/js/format',
-            'popup',
+            'lodash',
             'prop-types'
         ]
     },
@@ -49,12 +47,6 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
         alias: {
-            components: path.resolve(__dirname, '../src/components'),
-            commonjsx: path.resolve(__dirname, '../src/commonjsx'),
-            common: path.resolve(__dirname, '../src/assets/common'),
-            popup: path.resolve(__dirname, '../src/assets/common/lib/popup/popup.js'),
-            pages: path.resolve(__dirname, '../src/pages'),
-            actions: path.resolve(__dirname, '../src/redux/actions')
         },
     },
     plugins: [

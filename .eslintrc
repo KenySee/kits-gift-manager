@@ -46,7 +46,7 @@
         "indent": [2, 4],  //空格数
         "quotes": [2, "single"], //单双引号
         "linebreak-style": [2, "unix"],
-        "semi": [2, "never"],
+        "semi": [0, "never"],
         "no-cond-assign": 2, //禁止条件表达式中出现赋值操作符
         "no-constant-condition": 2, //禁止在条件中使用常量表达式
         "no-control-regex":0, //正则
