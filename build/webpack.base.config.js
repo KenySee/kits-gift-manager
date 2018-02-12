@@ -11,7 +11,6 @@ const PROT = process.env.PROT || 8000
 const HappyPack = require('happypack')
 const os = require('os')
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
-// const happyThreadPool = HappyPack.ThreadPool({ size: 1 })
 //提取公共文件
 const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin
 
@@ -105,12 +104,14 @@ const config = {
                     presets: [ 'env','react','flow' ],
                     plugins: ['syntax-dynamic-import','transform-object-rest-spread']
                 }
-            },{
-                loader:'eslint-loader',
-                options: {
-                    emitWarning: true,
-                },
-            }],
+            }
+            //     {
+            //     loader:'eslint-loader',
+            //     options: {
+            //         emitWarning: true,
+            //     },
+            // }
+            ],
         }),
         // sass 编译多线程
         // new HappyPack({
